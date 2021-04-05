@@ -69,6 +69,7 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *slockcmd[]  = { "slock", NULL };
 /* sh */
 static const char *upvol[]     = { "/workspace/bin/system/vol-up.sh",  NULL };
 static const char *downvol[]   = { "/workspace/bin/system/vol-down.sh",  NULL };
@@ -124,8 +125,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY,                       XK_n,      spawn,          {.v = termcmd } },
+	{ MODKEY|ControlMask,           XK_l,      spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ControlMask,           XK_q,      quit,           {0} },
 	{ MODKEY,                       XK_Up,     spawn,          {.v = upvol } },
 	{ MODKEY,                       XK_Down,   spawn,          {.v = downvol } },
 	{ MODKEY,                       XK_Left,   spawn,          {.v = downlight } },
