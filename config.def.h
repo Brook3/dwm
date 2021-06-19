@@ -71,6 +71,8 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *slockcmd[]  = { "slock", NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 /* sh */
 static const char *upvol[]     = { "/workspace/bin/system/vol-up.sh",  NULL };
 static const char *downvol[]   = { "/workspace/bin/system/vol-down.sh",  NULL };
@@ -133,6 +135,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Down,   spawn,          {.v = downvol } },
 	{ MODKEY,                       XK_Left,   spawn,          {.v = downlight } },
 	{ MODKEY,                       XK_Right,  spawn,          {.v = uplight } },
+	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 };
 
 /* button definitions */
